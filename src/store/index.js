@@ -1,8 +1,8 @@
-import {createStore, combineReducers} from 'redux'
-import appReducer from '../components/App/reducers'
+import { createStore, combineReducers } from 'redux'
+import appReducer from '../components/Level/reducers'
 
 const rootReducer = combineReducers({
-	levels: appReducer
+	level: appReducer
 })
 
 const store = createStore(

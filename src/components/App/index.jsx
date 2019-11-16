@@ -1,30 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {initializeApp} from './actions'
+import React from 'react'
+import Level from '../Level'
+import './styles.css'
 
-import './App.css';
+const App = () => (
+	<div className="app">
+		<Level></Level>
+	</div>
+)
 
-class App extends React.Component {
-	componentDidMount() {
-		const {initializeApp} = this.props
-
-		initializeApp()
-	}
-
-	render() {
-		return (
-			<div>test</div>
-		)
-	}
-}
-
-App.propTypes = {
-	initializeApp: PropTypes.func
-}
-
-const mapDispatchToProps = {
-	initializeApp
-}
-
-export default connect(null, mapDispatchToProps)(App);
+export default App
