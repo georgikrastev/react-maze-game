@@ -1,0 +1,39 @@
+/* Default level styles */
+.level {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 640px;
+    margin: 0 auto;
+    border: 1px solid #222;
+    position: relative;
+}
+
+.level__cell {
+    flex: 0 0 10%;
+    max-width: 10%;
+    padding-bottom: 10%;
+}
+
+/* Level Borders */
+.level__cell--border-left {
+    border-left: 1px solid #222;
+}
+
+.level__cell--border-right {
+    border-right: 1px solid #222;
+}
+
+.level__cell--border-up {
+    border-top: 1px solid #222;
+}
+
+.level__cell--border-down {
+    border-bottom: 1px solid #222;
+}
+
+/* Level sizes */
+.level--size-20 .level__cell {
+    flex: 0 0 5%;
+    max-width: 5%;
+    padding-bottom: 5%;
+}
