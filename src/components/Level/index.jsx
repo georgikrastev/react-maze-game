@@ -22,7 +22,7 @@ class Level extends React.Component {
 
 		return levelCells ? (
 			<div className={`level level--size-${levelSize}`}>
-				{levelCells.map(({ key, allowedDirections }) => {
+				{levelCells.map(({ key, allowedDirections, isStart }) => {
 					let classesString
 					let classesList = []
 
@@ -31,6 +31,10 @@ class Level extends React.Component {
 							classesList.push(`level__cell--border-${direction}`)
 						}
 					})
+
+					if (isStart) {
+						classesList.push('level__cell--start')
+					}
 
 					classesString = classesList.join(' ')
 
