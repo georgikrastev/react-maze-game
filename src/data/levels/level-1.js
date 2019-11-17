@@ -1602,6 +1602,166 @@ export default {
 			},
 			allowedDirections: ['left', 'down'],
 			key: '19-9'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 10
+			},
+			allowedDirections: ['right', 'down'],
+			key: '0-10'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 10
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '1-10'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 10
+			},
+			allowedDirections: ['left', 'up'],
+			key: '2-10'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 10
+			},
+			allowedDirections: ['down'],
+			key: '3-10'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 10
+			},
+			allowedDirections: ['up', 'down'],
+			key: '4-10'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 10
+			},
+			allowedDirections: ['right', 'down'],
+			key: '5-10'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 10
+			},
+			allowedDirections: ['left', 'down'],
+			key: '6-10'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 10
+			},
+			allowedDirections: ['up', 'down'],
+			key: '7-10'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 10
+			},
+			allowedDirections: ['right', 'up'],
+			key: '8-10'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 10
+			},
+			allowedDirections: ['left', 'right'],
+			key: '9-10'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 10
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '10-10'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 10
+			},
+			allowedDirections: ['left', 'down'],
+			key: '11-10'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 10
+			},
+			allowedDirections: ['up', 'down'],
+			key: '12-10'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 10
+			},
+			allowedDirections: ['right', 'up'],
+			key: '13-10'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 10
+			},
+			allowedDirections: ['left', 'right'],
+			key: '14-10'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 10
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '15-10'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 10
+			},
+			allowedDirections: ['left', 'right', 'down'],
+			key: '16-10'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 10
+			},
+			allowedDirections: ['left', 'up'],
+			key: '17-10'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 10
+			},
+			allowedDirections: ['right'],
+			key: '18-10'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 10
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '19-10'
 		}
 	],
 	start: {
