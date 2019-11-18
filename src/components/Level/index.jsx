@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createPropsSelector } from 'reselect-immutable-helpers'
-import debounce from 'lodash.debounce'
+import throttle from 'lodash.throttle'
 
 import { initializeLevel } from './actions'
 import { getLevelSize, getLevelCells } from './selectors'
@@ -26,11 +26,14 @@ class Level extends React.Component {
 	constructor() {
 		super()
 
-		this.handleKeyDown = debounce(
-			this.handleKeyDown.bind(this),
-			TRANSITION_DELAY
+		this.handleKeyDown = this.handleKeyDown.bind(this)
+		this.updatePosition = throttle(
+			this.updatePosition.bind(this),
+			TRANSITION_DELAY,
+			{
+				trailing: false
+			}
 		)
-		this.updatePosition = this.updatePosition.bind(this)
 	}
 
 	updatePosition(positionObj, direction) {
