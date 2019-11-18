@@ -14,19 +14,28 @@
     padding-bottom: 10%;
 }
 
-.level__cell--start {
+.level__cell--start,
+.level__cell--end {
     position: relative;
 }
 
-.level__cell--start:before {
+.level__cell--start:before,
+.level__cell--end:before {
     content: '';
     width: 100%;
     height: 2px;
     background-color: #fff;
     position: absolute;
     left: 0;
-    bottom: 100%;
     z-index: 10;
+}
+
+.level__cell--start:before {
+    bottom: 100%;
+}
+
+.level__cell--end:before {
+    top: 100%;
 }
 
 /* Level Borders */

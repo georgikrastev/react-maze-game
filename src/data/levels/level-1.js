@@ -1762,6 +1762,1447 @@ export default {
 			},
 			allowedDirections: ['left', 'up', 'down'],
 			key: '19-10'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 11
+			},
+			allowedDirections: ['up', 'down'],
+			key: '0-11'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 11
+			},
+			allowedDirections: ['right'],
+			key: '1-11'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 11
+			},
+			allowedDirections: ['left', 'right'],
+			key: '2-11'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 11
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '3-11'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 11
+			},
+			allowedDirections: ['right', 'up'],
+			key: '4-11'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 11
+			},
+			allowedDirections: ['left', 'up'],
+			key: '5-11'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 11
+			},
+			allowedDirections: ['up', 'down'],
+			key: '6-11'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 11
+			},
+			allowedDirections: ['up'],
+			key: '7-11'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 11
+			},
+			allowedDirections: ['right', 'down'],
+			key: '8-11'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 11
+			},
+			allowedDirections: ['left', 'right'],
+			key: '9-11'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 11
+			},
+			allowedDirections: ['left', 'right'],
+			key: '10-11'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 11
+			},
+			allowedDirections: ['left', 'up'],
+			key: '11-11'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 11
+			},
+			allowedDirections: ['up', 'down'],
+			key: '12-11'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 11
+			},
+			allowedDirections: ['down'],
+			key: '13-11'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 11
+			},
+			allowedDirections: ['right', 'down'],
+			key: '14-11'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 11
+			},
+			allowedDirections: ['left'],
+			key: '15-11'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 11
+			},
+			allowedDirections: ['right', 'up'],
+			key: '16-11'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 11
+			},
+			allowedDirections: ['left', 'down'],
+			key: '17-11'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 11
+			},
+			allowedDirections: ['right', 'down'],
+			key: '18-11'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 11
+			},
+			allowedDirections: ['left', 'up'],
+			key: '19-11'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 12
+			},
+			allowedDirections: ['right', 'up'],
+			key: '0-12'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 12
+			},
+			allowedDirections: ['left', 'right', 'down'],
+			key: '1-12'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 12
+			},
+			allowedDirections: ['left'],
+			key: '2-12'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 12
+			},
+			allowedDirections: ['up', 'down'],
+			key: '3-12'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 12
+			},
+			allowedDirections: ['right', 'down'],
+			key: '4-12'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 12
+			},
+			allowedDirections: ['left', 'down'],
+			key: '5-12'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 12
+			},
+			allowedDirections: ['up', 'down'],
+			key: '6-12'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 12
+			},
+			allowedDirections: ['right', 'down'],
+			key: '7-12'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 12
+			},
+			allowedDirections: ['left', 'up'],
+			key: '8-12'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 12
+			},
+			allowedDirections: ['right'],
+			key: '9-12'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 12
+			},
+			allowedDirections: ['left', 'right'],
+			key: '10-12'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 12
+			},
+			allowedDirections: ['left', 'right'],
+			key: '11-12'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 12
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '12-12'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 12
+			},
+			allowedDirections: ['left', 'up'],
+			key: '13-12'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 12
+			},
+			allowedDirections: ['right', 'up'],
+			key: '14-12'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 12
+			},
+			allowedDirections: ['left', 'right'],
+			key: '15-12'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 12
+			},
+			allowedDirections: ['left', 'right'],
+			key: '16-12'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 12
+			},
+			allowedDirections: ['left', 'up'],
+			key: '17-12'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 12
+			},
+			allowedDirections: ['right', 'up'],
+			key: '18-12'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 12
+			},
+			allowedDirections: ['left', 'down'],
+			key: '19-12'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 13
+			},
+			allowedDirections: ['right', 'down'],
+			key: '0-13'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 13
+			},
+			allowedDirections: ['left', 'up'],
+			key: '1-13'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 13
+			},
+			allowedDirections: ['right', 'down'],
+			key: '2-13'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 13
+			},
+			allowedDirections: ['left', 'up'],
+			key: '3-13'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 13
+			},
+			allowedDirections: ['up', 'down'],
+			key: '4-13'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 13
+			},
+			allowedDirections: ['up', 'down'],
+			key: '5-13'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 13
+			},
+			allowedDirections: ['up', 'down'],
+			key: '6-13'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 13
+			},
+			allowedDirections: ['right', 'up'],
+			key: '7-13'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 13
+			},
+			allowedDirections: ['left', 'right'],
+			key: '8-13'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 13
+			},
+			allowedDirections: ['left', 'right'],
+			key: '9-13'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 13
+			},
+			allowedDirections: ['left', 'right'],
+			key: '10-13'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 13
+			},
+			allowedDirections: ['left', 'right'],
+			key: '11-13'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 13
+			},
+			allowedDirections: ['left', 'right'],
+			key: '12-13'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 13
+			},
+			allowedDirections: ['left', 'right', 'down'],
+			key: '13-13'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 13
+			},
+			allowedDirections: ['left', 'right'],
+			key: '14-13'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 13
+			},
+			allowedDirections: ['left'],
+			key: '15-13'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 13
+			},
+			allowedDirections: ['right', 'down'],
+			key: '16-13'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 13
+			},
+			allowedDirections: ['left', 'down'],
+			key: '17-13'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 13
+			},
+			allowedDirections: ['right'],
+			key: '18-13'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 13
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '19-13'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 14
+			},
+			allowedDirections: ['up', 'down'],
+			key: '0-14'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 14
+			},
+			allowedDirections: ['right', 'down'],
+			key: '1-14'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 14
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '2-14'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 14
+			},
+			allowedDirections: ['left', 'right'],
+			key: '3-14'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 14
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '4-14'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 14
+			},
+			allowedDirections: ['up', 'down'],
+			key: '5-14'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 14
+			},
+			allowedDirections: ['right', 'up'],
+			key: '6-14'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 14
+			},
+			allowedDirections: ['left', 'right'],
+			key: '7-14'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 14
+			},
+			allowedDirections: ['left', 'down'],
+			key: '8-14'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 14
+			},
+			allowedDirections: ['right', 'down'],
+			key: '9-14'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 14
+			},
+			allowedDirections: ['left', 'right'],
+			key: '10-14'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 14
+			},
+			allowedDirections: ['left', 'right'],
+			key: '11-14'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 14
+			},
+			allowedDirections: ['left', 'right'],
+			key: '12-14'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 14
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '13-14'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 14
+			},
+			allowedDirections: ['right', 'down'],
+			key: '14-14'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 14
+			},
+			allowedDirections: ['left', 'down'],
+			key: '15-14'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 14
+			},
+			allowedDirections: ['up', 'down'],
+			key: '16-14'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 14
+			},
+			allowedDirections: ['right', 'up'],
+			key: '17-14'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 14
+			},
+			allowedDirections: ['left', 'down'],
+			key: '18-14'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 14
+			},
+			allowedDirections: ['up'],
+			key: '19-14'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 15
+			},
+			allowedDirections: ['up', 'down'],
+			key: '0-15'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 15
+			},
+			allowedDirections: ['up', 'down'],
+			key: '1-15'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 15
+			},
+			allowedDirections: ['right', 'down'],
+			key: '2-15'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 15
+			},
+			allowedDirections: ['left', 'down'],
+			key: '3-15'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 15
+			},
+			allowedDirections: ['up', 'down'],
+			key: '4-15'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 15
+			},
+			allowedDirections: ['right', 'up'],
+			key: '5-15'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 15
+			},
+			allowedDirections: ['left', 'right'],
+			key: '6-15'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 15
+			},
+			allowedDirections: ['left', 'down'],
+			key: '7-15'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 15
+			},
+			allowedDirections: ['up', 'down'],
+			key: '8-15'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 15
+			},
+			allowedDirections: ['right', 'up'],
+			key: '9-15'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 15
+			},
+			allowedDirections: ['left', 'right'],
+			key: '10-15'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 15
+			},
+			allowedDirections: ['left', 'right'],
+			key: '11-15'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 15
+			},
+			allowedDirections: ['left', 'down'],
+			key: '12-15'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 15
+			},
+			allowedDirections: ['up'],
+			key: '13-15'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 15
+			},
+			allowedDirections: ['up', 'down'],
+			key: '14-15'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 15
+			},
+			allowedDirections: ['right', 'up'],
+			key: '15-15'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 15
+			},
+			allowedDirections: ['left', 'up'],
+			key: '16-15'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 15
+			},
+			allowedDirections: ['right', 'down'],
+			key: '17-15'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 15
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '18-15'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 15
+			},
+			allowedDirections: ['left', 'down'],
+			key: '19-15'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 16
+			},
+			allowedDirections: ['right', 'up'],
+			key: '0-16'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 16
+			},
+			allowedDirections: ['left', 'up'],
+			key: '1-16'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 16
+			},
+			allowedDirections: ['up', 'down'],
+			key: '2-16'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 16
+			},
+			allowedDirections: ['up', 'down'],
+			key: '3-16'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 16
+			},
+			allowedDirections: ['up', 'down'],
+			key: '4-16'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 16
+			},
+			allowedDirections: ['right', 'down'],
+			key: '5-16'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 16
+			},
+			allowedDirections: ['left', 'right'],
+			key: '6-16'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 16
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '7-16'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 16
+			},
+			allowedDirections: ['up', 'down'],
+			key: '8-16'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 16
+			},
+			allowedDirections: ['down'],
+			key: '9-16'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 16
+			},
+			allowedDirections: ['right', 'down'],
+			key: '10-16'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 16
+			},
+			allowedDirections: ['left', 'right'],
+			key: '11-16'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 16
+			},
+			allowedDirections: ['left', 'up'],
+			key: '12-16'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 16
+			},
+			allowedDirections: ['right', 'down'],
+			key: '13-16'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 16
+			},
+			allowedDirections: ['left', 'up', 'down'],
+			key: '14-16'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 16
+			},
+			allowedDirections: ['right'],
+			key: '15-16'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 16
+			},
+			allowedDirections: ['left', 'down'],
+			key: '16-16'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 16
+			},
+			allowedDirections: ['up', 'down'],
+			key: '17-16'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 16
+			},
+			allowedDirections: ['right', 'down'],
+			key: '18-16'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 16
+			},
+			allowedDirections: ['left', 'up'],
+			key: '19-16'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 17
+			},
+			allowedDirections: ['right', 'down'],
+			key: '0-17'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 17
+			},
+			allowedDirections: ['left', 'down'],
+			key: '1-17'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 17
+			},
+			allowedDirections: ['up', 'down'],
+			key: '2-17'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 17
+			},
+			allowedDirections: ['right', 'up'],
+			key: '3-17'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 17
+			},
+			allowedDirections: ['left', 'up'],
+			key: '4-17'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 17
+			},
+			allowedDirections: ['up'],
+			key: '5-17'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 17
+			},
+			allowedDirections: ['right', 'down'],
+			key: '6-17'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 17
+			},
+			allowedDirections: ['left', 'up'],
+			key: '7-17'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 17
+			},
+			allowedDirections: ['up', 'down'],
+			key: '8-17'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 17
+			},
+			allowedDirections: ['right', 'up'],
+			key: '9-17'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 17
+			},
+			allowedDirections: ['left', 'up'],
+			key: '10-17'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 17
+			},
+			allowedDirections: ['right', 'down'],
+			key: '11-17'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 17
+			},
+			allowedDirections: ['left', 'right'],
+			key: '12-17'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 17
+			},
+			allowedDirections: ['left', 'up'],
+			key: '13-17'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 17
+			},
+			allowedDirections: ['right', 'up'],
+			key: '14-17'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 17
+			},
+			allowedDirections: ['left', 'right'],
+			key: '15-17'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 17
+			},
+			allowedDirections: ['left', 'up'],
+			key: '16-17'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 17
+			},
+			allowedDirections: ['up', 'down'],
+			key: '17-17'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 17
+			},
+			allowedDirections: ['right', 'up'],
+			key: '18-17'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 17
+			},
+			allowedDirections: ['left', 'down'],
+			key: '19-17'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 18
+			},
+			allowedDirections: ['up', 'down'],
+			key: '0-18'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 18
+			},
+			allowedDirections: ['up', 'down'],
+			key: '1-18'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 18
+			},
+			allowedDirections: ['right', 'up', 'down'],
+			key: '2-18'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 18
+			},
+			allowedDirections: ['left', 'down'],
+			key: '3-18'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 18
+			},
+			allowedDirections: ['right', 'down'],
+			key: '4-18'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '5-18'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 18
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '6-18'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 18
+			},
+			allowedDirections: ['left', 'down'],
+			key: '7-18'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 18
+			},
+			allowedDirections: ['right', 'up'],
+			key: '8-18'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '9-18'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '10-18'
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 18
+			},
+			allowedDirections: ['left', 'up'],
+			key: '11-18'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 18
+			},
+			allowedDirections: ['right', 'down'],
+			key: '12-18'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '13-18'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '14-18'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '15-18'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 18
+			},
+			allowedDirections: ['left', 'right'],
+			key: '16-18'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 18
+			},
+			allowedDirections: ['left', 'up'],
+			key: '17-18'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 18
+			},
+			allowedDirections: ['right', 'down'],
+			key: '18-18'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 18
+			},
+			allowedDirections: ['left', 'up'],
+			key: '19-18'
+		},
+		{
+			coordinates: {
+				x: 0,
+				y: 19
+			},
+			allowedDirections: ['up'],
+			key: '0-19'
+		},
+		{
+			coordinates: {
+				x: 1,
+				y: 19
+			},
+			allowedDirections: ['right', 'up'],
+			key: '1-19'
+		},
+		{
+			coordinates: {
+				x: 2,
+				y: 19
+			},
+			allowedDirections: ['left', 'up'],
+			key: '2-19'
+		},
+		{
+			coordinates: {
+				x: 3,
+				y: 19
+			},
+			allowedDirections: ['up'],
+			key: '3-19'
+		},
+		{
+			coordinates: {
+				x: 4,
+				y: 19
+			},
+			allowedDirections: ['right', 'up'],
+			key: '4-19'
+		},
+		{
+			coordinates: {
+				x: 5,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '5-19'
+		},
+		{
+			coordinates: {
+				x: 6,
+				y: 19
+			},
+			allowedDirections: ['left'],
+			key: '6-19'
+		},
+		{
+			coordinates: {
+				x: 7,
+				y: 19
+			},
+			allowedDirections: ['right', 'up'],
+			key: '7-19'
+		},
+		{
+			coordinates: {
+				x: 8,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '8-19'
+		},
+		{
+			coordinates: {
+				x: 9,
+				y: 19
+			},
+			allowedDirections: ['left'],
+			key: '9-19'
+		},
+		{
+			coordinates: {
+				x: 10,
+				y: 19
+			},
+			allowedDirections: ['right'],
+			key: '10-19',
+			isEnd: true
+		},
+		{
+			coordinates: {
+				x: 11,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '11-19'
+		},
+		{
+			coordinates: {
+				x: 12,
+				y: 19
+			},
+			allowedDirections: ['left', 'up'],
+			key: '12-19'
+		},
+		{
+			coordinates: {
+				x: 13,
+				y: 19
+			},
+			allowedDirections: ['right'],
+			key: '13-19'
+		},
+		{
+			coordinates: {
+				x: 14,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '14-19'
+		},
+		{
+			coordinates: {
+				x: 15,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '15-19'
+		},
+		{
+			coordinates: {
+				x: 16,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '16-19'
+		},
+		{
+			coordinates: {
+				x: 17,
+				y: 19
+			},
+			allowedDirections: ['left', 'right'],
+			key: '17-19'
+		},
+		{
+			coordinates: {
+				x: 18,
+				y: 19
+			},
+			allowedDirections: ['left', 'right', 'up'],
+			key: '18-19'
+		},
+		{
+			coordinates: {
+				x: 19,
+				y: 19
+			},
+			allowedDirections: ['left'],
+			key: '19-19'
 		}
 	],
 	start: {

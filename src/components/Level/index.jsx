@@ -22,24 +22,32 @@ class Level extends React.Component {
 
 		return levelCells ? (
 			<div className={`level level--size-${levelSize}`}>
-				{levelCells.map(({ key, allowedDirections, isStart }) => {
-					let classesString
-					let classesList = []
+				{levelCells.map(
+					({ key, allowedDirections, isStart, isEnd }) => {
+						let classesString
+						let classesList = []
 
-					allDirections.map(direction => {
-						if (!allowedDirections.includes(direction)) {
-							classesList.push(`level__cell--border-${direction}`)
+						allDirections.map(direction => {
+							if (!allowedDirections.includes(direction)) {
+								classesList.push(
+									`level__cell--border-${direction}`
+								)
+							}
+						})
+
+						if (isStart) {
+							classesList.push('level__cell--start')
 						}
-					})
 
-					if (isStart) {
-						classesList.push('level__cell--start')
+						if (isEnd) {
+							classesList.push('level__cell--end')
+						}
+
+						classesString = classesList.join(' ')
+
+						return <Cell classesString={classesString} key={key} />
 					}
-
-					classesString = classesList.join(' ')
-
-					return <Cell classesString={classesString} key={key} />
-				})}
+				)}
 			</div>
 		) : null
 	}
