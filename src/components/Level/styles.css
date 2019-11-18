@@ -61,3 +61,15 @@
     max-width: 5%;
     padding-bottom: 5%;
 }
+
+/* Level Pin */
+.level__pin {
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    background-color: #222;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 20;
+    transition: transform .5s;
+}
