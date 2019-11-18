@@ -3209,8 +3209,7 @@ export default {
 		coordinates: {
 			x: 9,
 			y: 0
-		},
-		allowedDirections: ['left', 'right']
+		}
 	},
 	end: {
 		coordinates: {

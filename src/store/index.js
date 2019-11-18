@@ -1,13 +1,19 @@
-import { createStore, combineReducers } from 'redux'
-import appReducer from '../components/Level/reducers'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+
+import appReducer from '../components/App/reducers'
+import levelReducer from '../components/Level/reducers'
 
 const rootReducer = combineReducers({
-	level: appReducer
+	app: appReducer,
+	level: levelReducer
 })
+
+const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(
 	rootReducer,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+	composeEnchancers(applyMiddleware(thunk))
 )
 
 export default store
