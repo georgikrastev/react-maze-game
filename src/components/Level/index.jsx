@@ -26,7 +26,11 @@ class Level extends React.Component {
 	constructor() {
 		super()
 
-		this.handleKeyDown = this.handleKeyDown.bind(this)
+		this.handleKeyDown = throttle(
+			this.handleKeyDown.bind(this),
+			TRANSITION_DELAY,
+			{ trailing: false }
+		)
 		this.updatePosition = throttle(
 			this.updatePosition.bind(this),
 			TRANSITION_DELAY,
@@ -44,18 +48,35 @@ class Level extends React.Component {
 				JSON.stringify(cell.coordinates) === JSON.stringify(appPosition)
 		)
 
+		const nextCell = levelCells.find(
+			cell =>
+				JSON.stringify(cell.coordinates) === JSON.stringify(positionObj)
+		)
+
 		const isAllowedDirection = currentCell.allowedDirections.includes(
 			direction
 		)
 
+		const isEnd = nextCell ? nextCell.isEnd : false
+
 		if (isAllowedDirection) {
+			// Change player position
 			updateCurrentPosition(positionObj)
+
+			if (isEnd) {
+				setTimeout(() => {
+					// Stop the game and show the player an alert
+					alert("Congratulations! You've escaped the maze!")
+					document.removeEventListener('keydown', this.handleKeyDown)
+				}, TRANSITION_DELAY)
+			}
 		}
 	}
 
 	handleKeyDown(event) {
 		const { appPosition } = this.props
 
+		// Update position based on pressed arrow keys
 		switch (event.keyCode) {
 			case LEFT_ARROW:
 				return this.updatePosition(

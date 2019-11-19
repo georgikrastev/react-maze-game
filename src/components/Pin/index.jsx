@@ -15,7 +15,7 @@ const Pin = ({ levelSize, appPosition }) => {
 	)
 
 	const computedStyles = {
-		transform: `translate(${computedLeft}px, ${computedTop}px)`
+		transform: `translate3d(${computedLeft}px, ${computedTop}px, 0)`
 	}
 
 	return <div className="level__pin" style={computedStyles}></div>
