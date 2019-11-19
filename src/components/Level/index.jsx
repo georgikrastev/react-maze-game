@@ -17,6 +17,7 @@ import {
 
 import { updateCurrentPosition } from '../App/actions'
 import { getAppPosition } from '../App/selectors'
+import { areObjectsEqual } from '../../utils/utils'
 
 import Cell from '../Cell'
 import Pin from '../Pin'
@@ -43,14 +44,12 @@ class Level extends React.Component {
 	updatePosition(positionObj, direction) {
 		const { appPosition, updateCurrentPosition, levelCells } = this.props
 
-		const currentCell = levelCells.find(
-			cell =>
-				JSON.stringify(cell.coordinates) === JSON.stringify(appPosition)
+		const currentCell = levelCells.find(cell =>
+			areObjectsEqual(cell.coordinates, appPosition)
 		)
 
-		const nextCell = levelCells.find(
-			cell =>
-				JSON.stringify(cell.coordinates) === JSON.stringify(positionObj)
+		const nextCell = levelCells.find(cell =>
+			areObjectsEqual(cell.coordinates, positionObj)
 		)
 
 		const isAllowedDirection = currentCell.allowedDirections.includes(

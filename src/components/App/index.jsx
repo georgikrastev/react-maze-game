@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
+import Heading from '../Heading'
 import Level from '../Level'
 
 import { setCurrentLevelNumber, updateCurrentPosition } from './actions'
@@ -18,7 +20,8 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<Level></Level>
+				<Heading />
+				<Level />
 			</div>
 		)
 	}

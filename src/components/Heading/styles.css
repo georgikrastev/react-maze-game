@@ -1,0 +1,13 @@
+.heading {
+    padding: 0 0 20px;
+    text-align: center;
+}
+
+.heading__title {
+    margin: 0 0 10px;
+}
+
+.heading__subtitle {
+    margin: 0;
+    font-weight: normal;
+}
