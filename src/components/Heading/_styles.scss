@@ -1,13 +1,13 @@
 .heading {
     padding: 0 0 $unit * 2;
     text-align: center;
-}
 
-.heading__title {
-    margin: 0 0 $unit;
-}
+    &__title {
+        margin: 0 0 $unit;
+    }
 
-.heading__subtitle {
-    margin: 0;
-    font-weight: normal;
+    &__subtitle {
+        margin: 0;
+        font-weight: normal;
+    }
 }

@@ -10,7 +10,10 @@ sans-serif;
 $black: #000;
 $white: #fff;
 $dark: #222;
+$light-gray: #ddd;
 
 /* UI elements' specific styles */
 $level-width: $unit * 64;
+$modal-overlay-bg: rgba($black, .75);
+$modal-content-max-width: $unit * 32;
 

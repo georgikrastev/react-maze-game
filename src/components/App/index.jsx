@@ -4,15 +4,25 @@ import PropTypes from 'prop-types'
 
 import Heading from '../Heading'
 import Level from '../Level'
+import Modal from '../Modal'
 
-import { setCurrentLevelNumber, updateCurrentPosition } from './actions'
+import {
+	setCurrentLevelNumber,
+	updateCurrentPosition,
+	toggleModal
+} from './actions'
 
 class App extends React.Component {
 	componentDidMount() {
-		const { setCurrentLevelNumber, updateCurrentPosition } = this.props
+		const {
+			setCurrentLevelNumber,
+			updateCurrentPosition,
+			toggleModal
+		} = this.props
 
 		setCurrentLevelNumber()
 		updateCurrentPosition()
+		toggleModal(false)
 	}
 
 	render() {
@@ -20,6 +30,7 @@ class App extends React.Component {
 			<div className="app">
 				<Heading />
 				<Level />
+				<Modal />
 			</div>
 		)
 	}
@@ -27,12 +38,14 @@ class App extends React.Component {
 
 App.propTypes = {
 	setCurrentLevelNumber: PropTypes.func,
-	updateCurrentPosition: PropTypes.func
+	updateCurrentPosition: PropTypes.func,
+	toggleModal: PropTypes.func
 }
 
 const mapDispatchToProps = {
 	setCurrentLevelNumber,
-	updateCurrentPosition
+	updateCurrentPosition,
+	toggleModal
 }
 
 export default connect(null, mapDispatchToProps)(App)
