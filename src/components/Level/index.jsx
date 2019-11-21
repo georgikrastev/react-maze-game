@@ -5,7 +5,7 @@ import { createPropsSelector } from 'reselect-immutable-helpers'
 import throttle from 'lodash.throttle'
 
 import { initializeLevel } from './actions'
-import { getLevelSize, getLevelCells } from './selectors'
+import { getLevelSize, getLevelCells, getLevelStart } from './selectors'
 import {
 	allDirections,
 	LEFT_ARROW,
@@ -15,7 +15,11 @@ import {
 	TRANSITION_DELAY
 } from './constants'
 
-import { updateCurrentPosition, toggleModal } from '../App/actions'
+import {
+	updateCurrentPosition,
+	toggleModal,
+	setCurrentPosition
+} from '../App/actions'
 import { getAppPosition } from '../App/selectors'
 import { areObjectsEqual } from '../../utils/utils'
 
@@ -69,7 +73,6 @@ class Level extends React.Component {
 			if (isEnd) {
 				setTimeout(() => {
 					toggleModal(true)
-					document.removeEventListener('keydown', this.handleKeyDown)
 				}, TRANSITION_DELAY)
 			}
 		}
@@ -125,6 +128,20 @@ class Level extends React.Component {
 
 		// Add keyboards event listeners
 		document.addEventListener('keydown', this.handleKeyDown)
+	}
+
+	componentDidUpdate(prevProps) {
+		const {
+			levelStart: { coordinates },
+			setCurrentPosition
+		} = this.props
+
+		if (
+			prevProps.levelStart &&
+			coordinates !== prevProps.levelStart.coordinates
+		) {
+			setCurrentPosition(coordinates)
+		}
 	}
 
 	componentWillUnmount() {
@@ -184,25 +201,34 @@ Level.propTypes = {
 			allowedDirections: PropTypes.array
 		})
 	),
+	levelStart: PropTypes.shape({
+		coordinates: PropTypes.shape({
+			x: PropTypes.number,
+			y: PropTypes.number
+		})
+	}),
 	initializeLevel: PropTypes.func,
 	appPosition: PropTypes.shape({
 		x: PropTypes.number,
 		y: PropTypes.number
 	}),
 	updateCurrentPosition: PropTypes.func,
-	toggleModal: PropTypes.func
+	toggleModal: PropTypes.func,
+	setCurrentPosition: PropTypes.func
 }
 
 const mapStateToProps = createPropsSelector({
 	levelSize: getLevelSize,
 	levelCells: getLevelCells,
+	levelStart: getLevelStart,
 	appPosition: getAppPosition
 })
 
 const mapDispatchToProps = {
 	initializeLevel,
 	updateCurrentPosition,
-	toggleModal
+	toggleModal,
+	setCurrentPosition
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Level)

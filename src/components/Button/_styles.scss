@@ -1,0 +1,31 @@
+.button {
+	/* Default Button styles */
+	min-width: $unit * 12;
+	padding: $unit;
+	background-color: transparent;
+	border: 1px solid $dark;
+	font-size: $font-size-small;
+	color: $dark;
+	text-align: center;
+	appearance: none;
+	transition: background-color .25s, border-color .25s, color .25s;
+	cursor: pointer;
+	outline: none;
+
+	/* Primary Button */
+	&--primary {
+		background-color: $dark;
+		color: $white;
+
+		&:hover {
+			background-color: lighten($dark, 15%);
+		}
+	}
+
+	/* Secondary Button */
+	&--secondary {
+		&:hover {
+			background-color: lighten($dark, 75%);
+		}
+	}
+}
