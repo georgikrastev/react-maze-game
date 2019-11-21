@@ -6,10 +6,15 @@
     left: 0;
     top: 0;
     z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .5s, visibility .5s;
 
-    &--animate {
+    &--open {
         opacity: 1;
         visibility: visible;
+        pointer-events: all;
     }
     
     /* Modal Overlay */
@@ -34,19 +39,23 @@
         transform: translate3d(-50%, -50%, 0);
         z-index: 999;
     }
-
-    &__body,
-    &__actions {
-        padding: $unit * 2;
-    }
     
     /* Modal Body */
     &__body {
+        padding: $unit * 4 $unit * 2;
         text-align: center;
+        
+        h4 {
+            margin: 0;
+        }
     }
-
+    
     /* Modal Actions */
     &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $unit * 2;
         background-color: $light-gray;
     }
 }

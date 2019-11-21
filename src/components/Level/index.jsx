@@ -15,7 +15,7 @@ import {
 	TRANSITION_DELAY
 } from './constants'
 
-import { updateCurrentPosition } from '../App/actions'
+import { updateCurrentPosition, toggleModal } from '../App/actions'
 import { getAppPosition } from '../App/selectors'
 import { areObjectsEqual } from '../../utils/utils'
 
@@ -41,7 +41,12 @@ class Level extends React.Component {
 	}
 
 	updatePosition(positionObj, direction) {
-		const { appPosition, updateCurrentPosition, levelCells } = this.props
+		const {
+			appPosition,
+			updateCurrentPosition,
+			levelCells,
+			toggleModal
+		} = this.props
 
 		const currentCell = levelCells.find(cell =>
 			areObjectsEqual(cell.coordinates, appPosition)
@@ -63,8 +68,7 @@ class Level extends React.Component {
 
 			if (isEnd) {
 				setTimeout(() => {
-					// Stop the game and show the player an alert
-					alert("Congratulations! You've escaped the maze!")
+					toggleModal(true)
 					document.removeEventListener('keydown', this.handleKeyDown)
 				}, TRANSITION_DELAY)
 			}
@@ -185,7 +189,8 @@ Level.propTypes = {
 		x: PropTypes.number,
 		y: PropTypes.number
 	}),
-	updateCurrentPosition: PropTypes.func
+	updateCurrentPosition: PropTypes.func,
+	toggleModal: PropTypes.func
 }
 
 const mapStateToProps = createPropsSelector({
@@ -196,7 +201,8 @@ const mapStateToProps = createPropsSelector({
 
 const mapDispatchToProps = {
 	initializeLevel,
-	updateCurrentPosition
+	updateCurrentPosition,
+	toggleModal
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Level)
