@@ -1,8 +1,6 @@
 import React from 'react'
 import { headingTitle, headingSubtitle } from './constants'
 
-import './styles.css'
-
 const Heading = () => (
 	<div className="heading">
 		<h1 className="heading__title">{headingTitle}</h1>

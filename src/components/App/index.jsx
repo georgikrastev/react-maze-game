@@ -7,8 +7,6 @@ import Level from '../Level'
 
 import { setCurrentLevelNumber, updateCurrentPosition } from './actions'
 
-import './styles.css'
-
 class App extends React.Component {
 	componentDidMount() {
 		const { setCurrentLevelNumber, updateCurrentPosition } = this.props

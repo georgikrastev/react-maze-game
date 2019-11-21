@@ -22,7 +22,6 @@ import { areObjectsEqual } from '../../utils/utils'
 import Cell from '../Cell'
 import Pin from '../Pin'
 
-import './styles.css'
 class Level extends React.Component {
 	constructor() {
 		super()
