@@ -24,18 +24,6 @@
 					margin-top: $unit;
 				}
 			}
-
-			a {
-				display: block;
-				text-decoration: none;
-				color: $dark;
-				transition: opacity .25s;
-				outline: none;
-
-				&:hover {
-					opacity: 0.5;
-				}
-			}
 		}
 	}
 }

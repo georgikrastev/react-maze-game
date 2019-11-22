@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { createPropsSelector } from 'reselect-immutable-helpers'
 import throttle from 'lodash.throttle'
 
-import { initializeLevel } from './actions'
 import { getLevelSize, getLevelCells, getLevelStart } from './selectors'
 import {
 	allDirections,
@@ -121,11 +120,6 @@ class Level extends React.Component {
 	}
 
 	componentDidMount() {
-		const { initializeLevel } = this.props
-
-		// Initialize Level in store
-		initializeLevel()
-
 		// Add keyboards event listeners
 		document.addEventListener('keydown', this.handleKeyDown)
 	}
@@ -207,7 +201,6 @@ Level.propTypes = {
 			y: PropTypes.number
 		})
 	}),
-	initializeLevel: PropTypes.func,
 	appPosition: PropTypes.shape({
 		x: PropTypes.number,
 		y: PropTypes.number
@@ -225,7 +218,6 @@ const mapStateToProps = createPropsSelector({
 })
 
 const mapDispatchToProps = {
-	initializeLevel,
 	updateCurrentPosition,
 	toggleModal,
 	setCurrentPosition

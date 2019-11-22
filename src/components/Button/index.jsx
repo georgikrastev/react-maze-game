@@ -3,16 +3,24 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-const Button = ({ text, type, clickHandler, href }) => (
-	<button
-		className={classNames('button', {
-			[`button--${type}`]: Boolean(type)
-		})}
-		onClick={clickHandler ? clickHandler : null}
-	>
-		{href ? <Link to={href}>{text}</Link> : text}
-	</button>
-)
+const Button = ({ text, type, clickHandler, href }) => {
+	const customClasses = classNames('button', {
+		[`button--${type}`]: Boolean(type)
+	})
+
+	return href ? (
+		<Link to={href} className={customClasses}>
+			{text}
+		</Link>
+	) : (
+		<button
+			className={customClasses}
+			onClick={clickHandler ? clickHandler : null}
+		>
+			{text}
+		</button>
+	)
+}
 
 Button.propTypes = {
 	text: PropTypes.string,

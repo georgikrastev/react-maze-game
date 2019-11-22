@@ -1,9 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Button from '../Button'
 
 import { startScreenTitle, menuLinks } from './constants'
+import { loadGame, setLoadedStatus } from '../App/actions'
 
 class StartScreen extends React.Component {
+	constructor() {
+		super()
+
+		this.loadGameState = this.loadGameState.bind(this)
+	}
+
+	componentDidMount() {
+		const { setLoadedStatus } = this.props
+
+		setLoadedStatus()
+	}
+
+	loadGameState() {
+		const { loadGame, history } = this.props
+
+		loadGame(history)
+	}
+
 	render() {
 		return (
 			<div className="start-screen">
@@ -14,9 +35,16 @@ class StartScreen extends React.Component {
 
 					<div className="start-screen__menu">
 						<ul>
-							{menuLinks.map(({ id, label, href }) => (
+							{menuLinks.map(({ id, label, href, loadGame }) => (
 								<li key={id}>
-									<Link to={href}>{label}</Link>
+									<Button
+										type="link"
+										text={label}
+										href={href ? href : null}
+										clickHandler={
+											loadGame ? this.loadGameState : null
+										}
+									/>
 								</li>
 							))}
 						</ul>
@@ -27,4 +55,15 @@ class StartScreen extends React.Component {
 	}
 }
 
-export default StartScreen
+StartScreen.propTypes = {
+	loadGame: PropTypes.func,
+	history: PropTypes.object,
+	setLoadedStatus: PropTypes.func
+}
+
+const mapDispatchToProps = {
+	loadGame,
+	setLoadedStatus
+}
+
+export default connect(null, mapDispatchToProps)(StartScreen)
