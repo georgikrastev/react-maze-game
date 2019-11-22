@@ -43,11 +43,11 @@ export const setLoadedStatus = (status = false) => ({
 export const loadGame = history => dispatch => {
 	if (
 		localStorage.length > 0 &&
-		localStorage.level &&
-		localStorage.position
+		localStorage.getItem('level') &&
+		localStorage.getItem('position')
 	) {
-		const level = Number(localStorage.level)
-		const position = JSON.parse(localStorage.position)
+		const level = Number(localStorage.getItem('level'))
+		const position = JSON.parse(localStorage.getItem('position'))
 
 		dispatch(setLoadedStatus(true))
 		dispatch(setCurrentLevelNumber(level))
