@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import App from './components/App/'
+import Router from './components/Router'
 import store from './store/'
 
 import './styles/_styles.scss'
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<Router />
 	</Provider>,
 	document.getElementById('root')
 )

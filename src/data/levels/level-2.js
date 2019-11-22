@@ -1,5 +1,5 @@
 export default {
-	number: 1,
+	number: 2,
 	size: 20,
 	cells: [
 		{

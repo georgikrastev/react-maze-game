@@ -57,6 +57,7 @@ class Modal extends React.Component {
 							text="No"
 							type="secondary"
 							clickHandler={this.closeModal}
+							href="/"
 						/>
 
 						<Button
