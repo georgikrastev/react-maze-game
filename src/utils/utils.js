@@ -16,35 +16,34 @@ export const areObjectsEqual = (obj1, obj2) =>
 	JSON.stringify(obj1) === JSON.stringify(obj2)
 
 export const recursiveBacktrack = (
-	indexStack,
-	visitedCells,
-	currentCellIndex,
-	levelCells,
-	levelSize,
+	stack,
+	visited,
+	currentIndex,
+	cells,
+	size,
 	levelLength
 ) => {
-	if (indexStack.length > 0) {
-		const unvisitedAdjacentCells = []
+	if (stack.length > 0) {
+		const unvisited = []
 
-		const leftAdjacentCellIndex = currentCellIndex - 1
-		const rightAdjacentCellIndex = currentCellIndex + 1
-		const topAdjacentCellIndex = currentCellIndex - levelSize
-		const bottomAdjacentCellIndex = currentCellIndex + levelSize
-		const isFirstColumn = currentCellIndex % levelSize === 0
-		const isLastColumn = currentCellIndex % levelSize === levelSize - 1
-		const isFirstRow = Math.floor(currentCellIndex / levelSize) === 0
-		const isLastRow =
-			Math.floor(currentCellIndex / levelSize) === levelSize - 1
+		const leftIndex = currentIndex - 1
+		const rightIndex = currentIndex + 1
+		const topIndex = currentIndex - size
+		const bottomIndex = currentIndex + size
+		const isFirstColumn = currentIndex % size === 0
+		const isLastColumn = currentIndex % size === size - 1
+		const isFirstRow = Math.floor(currentIndex / size) === 0
+		const isLastRow = Math.floor(currentIndex / size) === size - 1
 
 		// Check if adjacent left cell is unvisited
 		if (
-			leftAdjacentCellIndex > 0 &&
-			leftAdjacentCellIndex < levelLength &&
+			leftIndex > 0 &&
+			leftIndex < levelLength &&
 			!isFirstColumn &&
-			!visitedCells.includes(leftAdjacentCellIndex)
+			!visited.includes(leftIndex)
 		) {
-			unvisitedAdjacentCells.push({
-				index: leftAdjacentCellIndex,
+			unvisited.push({
+				index: leftIndex,
 				direction: 'left',
 				oppositeDirection: 'right'
 			})
@@ -52,13 +51,13 @@ export const recursiveBacktrack = (
 
 		// Check if adjacent right cell is unvisited
 		if (
-			rightAdjacentCellIndex > 0 &&
-			rightAdjacentCellIndex < levelLength &&
+			rightIndex > 0 &&
+			rightIndex < levelLength &&
 			!isLastColumn &&
-			!visitedCells.includes(rightAdjacentCellIndex)
+			!visited.includes(rightIndex)
 		) {
-			unvisitedAdjacentCells.push({
-				index: rightAdjacentCellIndex,
+			unvisited.push({
+				index: rightIndex,
 				direction: 'right',
 				oppositeDirection: 'left'
 			})
@@ -66,13 +65,13 @@ export const recursiveBacktrack = (
 
 		// Check if adjacent top cell is unvisited
 		if (
-			topAdjacentCellIndex > 0 &&
-			topAdjacentCellIndex < levelLength &&
+			topIndex > 0 &&
+			topIndex < levelLength &&
 			!isFirstRow &&
-			!visitedCells.includes(topAdjacentCellIndex)
+			!visited.includes(topIndex)
 		) {
-			unvisitedAdjacentCells.push({
-				index: topAdjacentCellIndex,
+			unvisited.push({
+				index: topIndex,
 				direction: 'up',
 				oppositeDirection: 'down'
 			})
@@ -80,112 +79,107 @@ export const recursiveBacktrack = (
 
 		// Check if adjacent bottom cell is unvisited
 		if (
-			bottomAdjacentCellIndex > 0 &&
-			bottomAdjacentCellIndex < levelLength &&
+			bottomIndex > 0 &&
+			bottomIndex < levelLength &&
 			!isLastRow &&
-			!visitedCells.includes(bottomAdjacentCellIndex)
+			!visited.includes(bottomIndex)
 		) {
-			unvisitedAdjacentCells.push({
-				index: bottomAdjacentCellIndex,
+			unvisited.push({
+				index: bottomIndex,
 				direction: 'down',
 				oppositeDirection: 'up'
 			})
 		}
 
 		// If dead end is encountered start back tracking by popping
-		// off the last visited cell from the indexStack array
+		// off the last visited cell from the stack array
 		// until you find a cell with unvisited adjacent cells or
-		// until indexStack array is empty
-		if (unvisitedAdjacentCells.length < 1) {
-			indexStack.pop()
-			currentCellIndex = indexStack[indexStack.length - 1]
+		// until stack array is empty
+		if (unvisited.length < 1) {
+			stack.pop()
+			currentIndex = stack[stack.length - 1]
 
-			if (indexStack.length > 0) {
+			if (stack.length > 0) {
 				recursiveBacktrack(
-					indexStack,
-					visitedCells,
-					currentCellIndex,
-					levelCells,
-					levelSize,
+					stack,
+					visited,
+					currentIndex,
+					cells,
+					size,
 					levelLength
 				)
 			}
 		}
 
-		if (indexStack.length === 0) {
+		if (stack.length === 0) {
 			return
 		}
 
 		// Take random cell from the unvisited adjacent cells array
-		const randomAdjacentCell =
-			unvisitedAdjacentCells[
-				Math.floor(Math.random() * unvisitedAdjacentCells.length)
-			]
-		const randomAdjacentCellIndex = randomAdjacentCell.index
-		const randomAdjacentCellDirection = randomAdjacentCell.direction
-		const randomAdjacentCellOppositeDirection =
-			randomAdjacentCell.oppositeDirection
+		const randomArrayIndex = Math.floor(Math.random() * unvisited.length)
+		const randomCell = unvisited[randomArrayIndex]
+		const randomCellIndex = randomCell.index
+		const randomCellDirection = randomCell.direction
+		const randomCellOppositeDirection = randomCell.oppositeDirection
 
 		// Update level cell using the randomly chosen cell index above
-		levelCells[currentCellIndex].allowedDirections.push(
-			randomAdjacentCellDirection
-		)
-		levelCells[randomAdjacentCellIndex].allowedDirections.push(
-			randomAdjacentCellOppositeDirection
+		cells[currentIndex].allowedDirections.push(randomCellDirection)
+		cells[randomCellIndex].allowedDirections.push(
+			randomCellOppositeDirection
 		)
 
 		// Update visited cells array and current cell index
-		currentCellIndex = randomAdjacentCellIndex
-		visitedCells.push(currentCellIndex)
-		indexStack.push(currentCellIndex)
+		currentIndex = randomCellIndex
+		visited.push(currentIndex)
+		stack.push(currentIndex)
 
 		recursiveBacktrack(
-			indexStack,
-			visitedCells,
-			currentCellIndex,
-			levelCells,
-			levelSize,
+			stack,
+			visited,
+			currentIndex,
+			cells,
+			size,
 			levelLength
 		)
 	}
 }
 
 export const generateMaze = (difficultyLevel = difficulty.easy) => {
-	let levelSize = 10
-	let levelCells = []
-	let visitedCells = []
-	let indexStack = []
-	const currentCellIndex = 0
+	let size = 10
+	let cells = []
+	let visited = []
+	let stack = []
+	const currentIndex = 0
 
 	// Set level size based on selected difficulty
 	switch (difficultyLevel) {
 		case difficulty.easy:
-			levelSize = 10
+			size = 10
 			break
 		case difficulty.normal:
-			levelSize = 14
+			size = 14
 			break
 		case difficulty.medium:
-			levelSize = 18
+			size = 18
 			break
 		case difficulty.hard:
-			levelSize = 22
+			size = 22
 			break
 		case difficulty.insane:
-			levelSize = 26
+			size = 26
 			break
 		default:
 			break
 	}
 
-	const levelLength = Math.pow(levelSize, 2)
+	const levelLength = Math.pow(size, 2)
 
 	// Generate level cells
 	for (let i = 0; i < levelLength; i++) {
-		const x = i % levelSize
-		const y = Math.floor(i / levelSize)
+		const x = i % size
+		const y = Math.floor(i / size)
 
-		levelCells[i] = {
+		cells[i] = {
 			coordinates: {
 				x,
 				y
@@ -195,30 +189,23 @@ export const generateMaze = (difficultyLevel = difficulty.easy) => {
 		}
 
 		if (x === 0 && y === 0) {
-			levelCells[i].isStart = true
+			cells[i].isStart = true
 		}
 
-		if (x === levelSize - 1 && y === levelSize - 1) {
-			levelCells[i].isEnd = true
+		if (x === size - 1 && y === size - 1) {
+			cells[i].isEnd = true
 		}
 	}
 
 	// Update level cells based on `Recursive Backtracker algorithm`
-	visitedCells.push(currentCellIndex)
-	indexStack.push(currentCellIndex)
+	visited.push(currentIndex)
+	stack.push(currentIndex)
 
-	recursiveBacktrack(
-		indexStack,
-		visitedCells,
-		currentCellIndex,
-		levelCells,
-		levelSize,
-		levelLength
-	)
+	recursiveBacktrack(stack, visited, currentIndex, cells, size, levelLength)
 
 	return {
-		size: levelSize,
-		cells: levelCells,
+		size: size,
+		cells: cells,
 		start: {
 			coordinates: {
 				x: 0,
@@ -227,8 +214,8 @@ export const generateMaze = (difficultyLevel = difficulty.easy) => {
 		},
 		end: {
 			coordinates: {
-				x: levelSize - 1,
-				y: levelSize - 1
+				x: size - 1,
+				y: size - 1
 			}
 		}
 	}
