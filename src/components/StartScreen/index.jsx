@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
 import Button from '../Button'
+import Alert from '../Alert'
 
 import { startScreenTitle, menuLinks } from './constants'
+import { toggleAlert } from './actions'
 import { setDifficulty, setLoadedStatus } from '../App/actions'
 
 class StartScreen extends React.Component {
@@ -13,8 +16,19 @@ class StartScreen extends React.Component {
 		this.handleButtonClick = this.handleButtonClick.bind(this)
 	}
 
+	componentDidMount() {
+		const { toggleAlert } = this.props
+
+		toggleAlert()
+	}
+
 	handleButtonClick(action) {
-		const { setDifficulty, setLoadedStatus, history } = this.props
+		const {
+			setDifficulty,
+			setLoadedStatus,
+			history,
+			toggleAlert
+		} = this.props
 
 		switch (action.type) {
 			case 'START':
@@ -31,7 +45,7 @@ class StartScreen extends React.Component {
 					setLoadedStatus(true)
 					history.push('/playing')
 				} else {
-					alert('Nothing to load!')
+					toggleAlert(true)
 				}
 				break
 			default:
@@ -41,29 +55,33 @@ class StartScreen extends React.Component {
 
 	render() {
 		return (
-			<div className="start-screen">
-				<div className="start-screen__content">
-					<div className="start-screen__heading">
-						<h1>{startScreenTitle}</h1>
-					</div>
+			<React.Fragment>
+				<div className="start-screen">
+					<div className="start-screen__content">
+						<div className="start-screen__heading">
+							<h1>{startScreenTitle}</h1>
+						</div>
 
-					<div className="start-screen__menu">
-						<ul>
-							{menuLinks.map(({ id, label, action }) => (
-								<li key={id}>
-									<Button
-										type="link"
-										text={label}
-										clickHandler={() =>
-											this.handleButtonClick(action)
-										}
-									/>
-								</li>
-							))}
-						</ul>
+						<div className="start-screen__menu">
+							<ul>
+								{menuLinks.map(({ id, label, action }) => (
+									<li key={id}>
+										<Button
+											type="link"
+											text={label}
+											clickHandler={() =>
+												this.handleButtonClick(action)
+											}
+										/>
+									</li>
+								))}
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
+
+				<Alert type="warning" text="Nothing to load!" />
+			</React.Fragment>
 		)
 	}
 }
@@ -71,12 +89,14 @@ class StartScreen extends React.Component {
 StartScreen.propTypes = {
 	setDifficulty: PropTypes.func,
 	setLoadedStatus: PropTypes.func,
-	history: PropTypes.object
+	history: PropTypes.object,
+	toggleAlert: PropTypes.func
 }
 
 const mapDispatchToProps = {
 	setDifficulty,
-	setLoadedStatus
+	setLoadedStatus,
+	toggleAlert
 }
 
 export default connect(null, mapDispatchToProps)(StartScreen)

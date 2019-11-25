@@ -6,12 +6,15 @@ import {
 	SET_LOADED_STATUS
 } from './constants'
 
+import { TOGGLE_ALERT } from '../StartScreen/constants'
+
 const appReducer = (state = Immutable.Map(), action) => {
 	switch (action.type) {
 		case SET_CURRENT_POSITION:
 		case TOGGLE_MODAL:
 		case SET_DIFFICULTY_LEVEL:
 		case SET_LOADED_STATUS:
+		case TOGGLE_ALERT:
 			return state.merge(action.payload)
 		default:
 			return state

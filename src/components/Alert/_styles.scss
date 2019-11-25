@@ -1,0 +1,102 @@
+.alert {
+	/* Default Alert styles */
+	padding: $unit * 2 $unit * 5 $unit * 2 $unit * 2;
+	background-color: $white;
+	position: fixed;
+	left: $unit;
+	right: $unit;
+	bottom: $unit;
+	z-index: 999;
+	transform: translate3d(0, 120%, 0);
+	transition: transform .25s;
+
+	&.is--visible {
+		transform: translate3d(0, 0, 0);
+	}
+
+	&__close {
+		width: $unit * 1.8;
+		height: $unit * 1.8;
+		position: absolute;
+		right: $unit * 2;
+		top: $unit * 2;
+		z-index: 10;
+		transition: opacity .25s;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.5;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			width: $unit * .2;
+			height: 100%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform-origin: left top;
+		}
+
+		&:before {
+			transform: rotate(45deg) translate(-50%, -50%);
+		}
+
+		&:after {
+			transform: rotate(-45deg) translate(-50%, -50%);
+		}
+	}
+
+	/* Success */
+	&--success {
+		background-color: $success;
+		color: $success-text;
+
+		.alert__close {
+			&:before,
+			&:after {
+				background-color: $success-text;
+			}
+		}
+	}
+
+	/* Danger */
+	&--danger {
+		background-color: $danger;
+		color: $danger-text;
+
+		.alert__close {
+			&:before,
+			&:after {
+				background-color: $danger-text;
+			}
+		}
+	}
+
+	/* Warning */
+	&--warning {
+		background-color: $warning;
+		color: $warning-text;
+
+		.alert__close {
+			&:before,
+			&:after {
+				background-color: $warning-text;
+			}
+		}
+	}
+
+	/* Info */
+	&--info {
+		background-color: $info;
+		color: $info-text;
+
+		.alert__close {
+			&:before,
+			&:after {
+				background-color: $info-text;
+			}
+		}
+	}
+}

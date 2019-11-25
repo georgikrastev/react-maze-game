@@ -1,3 +1,4 @@
+export const TOGGLE_ALERT = 'TOGGLE_ALERT'
 export const startScreenTitle = 'Maze Game'
 export const menuLinks = [
 	{

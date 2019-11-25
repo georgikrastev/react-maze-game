@@ -14,8 +14,17 @@ $black: #000;
 $white: #fff;
 $dark: #222;
 $light-gray: #eee;
-$green: #afeb8d;
-$red: #e68989;
+$green: #d4edda;
+$red: #f8d7da;
+
+$success: $green;
+$success-text: #155724;
+$danger: $red;
+$danger-text: #721c24;
+$warning: #fff3cd;
+$warning-text: #856404;
+$info: #d1ecf1;
+$info-text: #0c5460;
 
 /* UI elements' specific styles */
 $level-width: $unit * 56;
