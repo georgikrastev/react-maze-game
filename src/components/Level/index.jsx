@@ -19,7 +19,7 @@ import {
 	toggleModal,
 	setCurrentPosition
 } from '../App/actions'
-import { getAppPosition } from '../App/selectors'
+import { getAppPosition, getAppLoadedFromStorage } from '../App/selectors'
 import { areObjectsEqual } from '../../utils/utils'
 
 import Cell from '../Cell'
@@ -127,12 +127,14 @@ class Level extends React.Component {
 	componentDidUpdate(prevProps) {
 		const {
 			levelStart: { coordinates },
-			setCurrentPosition
+			setCurrentPosition,
+			isLoadedFromStorage
 		} = this.props
 
 		if (
 			prevProps.levelStart &&
-			coordinates !== prevProps.levelStart.coordinates
+			coordinates !== prevProps.levelStart.coordinates &&
+			!isLoadedFromStorage
 		) {
 			setCurrentPosition(coordinates)
 		}
@@ -150,33 +152,21 @@ class Level extends React.Component {
 			<div className={`level level--size-${levelSize}`}>
 				<Pin />
 
-				{levelCells.map(
-					({ key, allowedDirections, isStart, isEnd }) => {
-						let classesString
-						let classesList = []
+				{levelCells.map(({ key, allowedDirections }) => {
+					let classesString
+					let classesList = []
 
-						/* eslint-disable array-callback-return */
-						allDirections.map(direction => {
-							if (!allowedDirections.includes(direction)) {
-								classesList.push(
-									`level__cell--border-${direction}`
-								)
-							}
-						})
-
-						if (isStart) {
-							classesList.push('level__cell--start')
+					/* eslint-disable array-callback-return */
+					allDirections.map(direction => {
+						if (!allowedDirections.includes(direction)) {
+							classesList.push(`level__cell--border-${direction}`)
 						}
+					})
 
-						if (isEnd) {
-							classesList.push('level__cell--end')
-						}
+					classesString = classesList.join(' ')
 
-						classesString = classesList.join(' ')
-
-						return <Cell classesString={classesString} key={key} />
-					}
-				)}
+					return <Cell classesString={classesString} key={key} />
+				})}
 			</div>
 		) : null
 	}
@@ -207,14 +197,16 @@ Level.propTypes = {
 	}),
 	updateCurrentPosition: PropTypes.func,
 	toggleModal: PropTypes.func,
-	setCurrentPosition: PropTypes.func
+	setCurrentPosition: PropTypes.func,
+	isLoadedFromStorage: PropTypes.bool
 }
 
 const mapStateToProps = createPropsSelector({
 	levelSize: getLevelSize,
 	levelCells: getLevelCells,
 	levelStart: getLevelStart,
-	appPosition: getAppPosition
+	appPosition: getAppPosition,
+	isLoadedFromStorage: getAppLoadedFromStorage
 })
 
 const mapDispatchToProps = {

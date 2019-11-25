@@ -9,33 +9,17 @@
 
     /* Level Cell */
     &__cell {
-        flex: 0 0 10%;
-        max-width: 10%;
-        padding-bottom: calc(10% - 2px);
+        flex: 0 0 $level-size-easy;
+        max-width: $level-size-easy;
+        padding-bottom: calc(#{$level-size-easy} - 2px);
 
-        &--start,
-        &--end {
-            position: relative;
+        &:nth-child(2) {
+			background-color: $red;
+		}
 
-            &:before,
-            &:before {
-                content: '';
-                width: 100%;
-                height: 2px;
-                background-color: $white;
-                position: absolute;
-                left: 0;
-                z-index: 10;
-            }
-        }
-
-        &--start:before {
-            bottom: 100%;
-        }
-
-        &--end:before {
-            top: 100%;
-        }
+		&:last-child {
+			background-color: $green;
+		}
 
         /* Level Borders */
         &--border-left {
@@ -56,11 +40,35 @@
     }
 
     /* Level sizes */
-    &--size-20 {
+    &--size-14 {
         .level__cell {
-            flex: 0 0 5%;
-            max-width: 5%;
-            padding-bottom: calc(5% - 2px);
+            flex: 0 0 $level-size-normal;
+            max-width: $level-size-normal;
+            padding-bottom: calc(#{$level-size-normal} - 2px);
+        }
+	}
+	
+	&--size-18 {
+        .level__cell {
+            flex: 0 0 $level-size-medium;
+            max-width: $level-size-medium;
+            padding-bottom: calc(#{$level-size-medium} - 2px);
+        }
+	}
+	
+	&--size-22 {
+        .level__cell {
+            flex: 0 0 $level-size-hard;
+            max-width: $level-size-hard;
+            padding-bottom: calc(#{$level-size-hard} - 2px);
+        }
+	}
+	
+	&--size-26 {
+        .level__cell {
+            flex: 0 0 $level-size-insane;
+            max-width: $level-size-insane;
+            padding-bottom: calc(#{$level-size-insane} - 2px);
         }
     }
 

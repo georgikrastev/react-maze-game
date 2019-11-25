@@ -4,25 +4,39 @@ import { connect } from 'react-redux'
 import Button from '../Button'
 
 import { startScreenTitle, menuLinks } from './constants'
-import { loadGame, setLoadedStatus } from '../App/actions'
+import { setDifficulty, setLoadedStatus } from '../App/actions'
 
 class StartScreen extends React.Component {
 	constructor() {
 		super()
 
-		this.loadGameState = this.loadGameState.bind(this)
+		this.handleButtonClick = this.handleButtonClick.bind(this)
 	}
 
-	componentDidMount() {
-		const { setLoadedStatus } = this.props
+	handleButtonClick(action) {
+		const { setDifficulty, setLoadedStatus, history } = this.props
 
-		setLoadedStatus()
-	}
-
-	loadGameState() {
-		const { loadGame, history } = this.props
-
-		loadGame(history)
+		switch (action.type) {
+			case 'START':
+				setLoadedStatus(false)
+				setDifficulty(action.difficulty)
+				history.push('/playing')
+				break
+			case 'LOAD':
+				if (
+					localStorage.length > 0 &&
+					localStorage.getItem('level') &&
+					localStorage.getItem('position')
+				) {
+					setLoadedStatus(true)
+					history.push('/playing')
+				} else {
+					alert('Nothing to load!')
+				}
+				break
+			default:
+				break
+		}
 	}
 
 	render() {
@@ -35,14 +49,13 @@ class StartScreen extends React.Component {
 
 					<div className="start-screen__menu">
 						<ul>
-							{menuLinks.map(({ id, label, href, loadGame }) => (
+							{menuLinks.map(({ id, label, action }) => (
 								<li key={id}>
 									<Button
 										type="link"
 										text={label}
-										href={href ? href : null}
-										clickHandler={
-											loadGame ? this.loadGameState : null
+										clickHandler={() =>
+											this.handleButtonClick(action)
 										}
 									/>
 								</li>
@@ -56,13 +69,13 @@ class StartScreen extends React.Component {
 }
 
 StartScreen.propTypes = {
-	loadGame: PropTypes.func,
-	history: PropTypes.object,
-	setLoadedStatus: PropTypes.func
+	setDifficulty: PropTypes.func,
+	setLoadedStatus: PropTypes.func,
+	history: PropTypes.object
 }
 
 const mapDispatchToProps = {
-	loadGame,
+	setDifficulty,
 	setLoadedStatus
 }
 

@@ -14,9 +14,17 @@ $black: #000;
 $white: #fff;
 $dark: #222;
 $light-gray: #eee;
+$green: #afeb8d;
+$red: #e68989;
 
 /* UI elements' specific styles */
 $level-width: $unit * 56;
 $modal-overlay-bg: rgba($black, .75);
 $modal-content-max-width: $unit * 40;
+
+$level-size-easy: percentage(1 / 10);
+$level-size-normal: percentage(1 / 14); 
+$level-size-medium: percentage(1 / 18); 
+$level-size-hard: percentage(1 / 22); 
+$level-size-insane: percentage(1 / 26); 
 

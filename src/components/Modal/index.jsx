@@ -7,9 +7,10 @@ import classNames from 'classnames'
 import Button from '../Button'
 
 import { modalTitle, modalText } from './constants'
-import { getAppModalStatus, getAppLevelNumber } from '../App/selectors'
-import { toggleModal, setCurrentLevelNumber } from '../App/actions'
+import { getAppModalStatus, getAppDifficulty } from '../App/selectors'
+import { toggleModal } from '../App/actions'
 import { initializeLevel } from '../Level/actions'
+import { generateMaze } from '../../utils/utils'
 
 class Modal extends React.Component {
 	constructor() {
@@ -26,11 +27,9 @@ class Modal extends React.Component {
 	}
 
 	loadNextLevel() {
-		const { initializeLevel, setCurrentLevelNumber, level } = this.props
-		const nextLevel = level + 1
+		const { initializeLevel, difficulty } = this.props
 
-		setCurrentLevelNumber(nextLevel)
-		initializeLevel(nextLevel)
+		initializeLevel(generateMaze(difficulty))
 		this.closeModal()
 	}
 
@@ -76,19 +75,17 @@ Modal.propTypes = {
 	isModalOpened: PropTypes.bool,
 	toggleModal: PropTypes.func,
 	initializeLevel: PropTypes.func,
-	setCurrentLevelNumber: PropTypes.func,
-	level: PropTypes.number
+	difficulty: PropTypes.string
 }
 
 const mapStateToProps = createPropsSelector({
 	isModalOpened: getAppModalStatus,
-	level: getAppLevelNumber
+	difficulty: getAppDifficulty
 })
 
 const mapDispatchToProps = {
 	toggleModal,
-	initializeLevel,
-	setCurrentLevelNumber
+	initializeLevel
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal)

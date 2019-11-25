@@ -1,18 +1,13 @@
 import {
-	SET_CURRENT_LEVEL_NUMBER,
 	SET_CURRENT_POSITION,
 	TOGGLE_MODAL,
-	SET_LOADED_STATUS
+	SET_LOADED_STATUS,
+	SET_DIFFICULTY_LEVEL
 } from './constants'
+import { getAppPosition } from './selectors'
 import { initializeLevel } from '../Level/actions'
-import { getLevelStart } from '../Level/selectors'
-
-export const setCurrentLevelNumber = (level = 1) => ({
-	type: SET_CURRENT_LEVEL_NUMBER,
-	payload: {
-		playing: level
-	}
-})
+import { getLevel, getLevelStart } from '../Level/selectors'
+import { generateMaze } from '../../utils/utils'
 
 export const setCurrentPosition = positionObj => ({
 	type: SET_CURRENT_POSITION,
@@ -40,23 +35,35 @@ export const setLoadedStatus = (status = false) => ({
 	}
 })
 
-export const loadGame = history => dispatch => {
-	if (
-		localStorage.length > 0 &&
-		localStorage.getItem('level') &&
-		localStorage.getItem('position')
-	) {
-		const level = Number(localStorage.getItem('level'))
-		const position = JSON.parse(localStorage.getItem('position'))
-
-		dispatch(setLoadedStatus(true))
-		dispatch(setCurrentLevelNumber(level))
-		dispatch(initializeLevel(level))
-		dispatch(updateCurrentPosition(position))
-		dispatch(toggleModal(false))
-
-		history.push('/playing')
-	} else {
-		alert('Nothing to load!') // Swap this with alert message
+export const setDifficulty = difficultyLevel => ({
+	type: SET_DIFFICULTY_LEVEL,
+	payload: {
+		difficulty: difficultyLevel
 	}
+})
+
+export const startGame = (difficultyLevel = 'EASY') => dispatch => {
+	dispatch(initializeLevel(generateMaze(difficultyLevel)))
+	dispatch(updateCurrentPosition())
+	dispatch(toggleModal(false))
+}
+
+export const saveGame = history => (dispatch, getState) => {
+	const level = getLevel(getState())
+	const position = getAppPosition(getState())
+
+	if (localStorage) {
+		localStorage.setItem('level', JSON.stringify(level))
+		localStorage.setItem('position', JSON.stringify(position))
+		history.push('/')
+	}
+}
+
+export const loadGame = () => dispatch => {
+	const level = JSON.parse(localStorage.getItem('level'))
+	const position = JSON.parse(localStorage.getItem('position'))
+
+	dispatch(initializeLevel(level))
+	dispatch(updateCurrentPosition(position))
+	dispatch(toggleModal(false))
 }

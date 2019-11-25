@@ -8,52 +8,41 @@ import Level from '../Level'
 import Modal from '../Modal'
 import Button from '../Button'
 
-import {
-	setCurrentLevelNumber,
-	updateCurrentPosition,
-	toggleModal
-} from './actions'
-
-import { initializeLevel } from '../Level/actions'
-
-import {
-	getAppLevelNumber,
-	getAppPosition,
-	getAppLoadedFromStorage
-} from './selectors'
+import { startGame, saveGame, loadGame, setLoadedStatus } from './actions'
+import { getAppDifficulty, getAppLoadedFromStorage } from './selectors'
 
 class App extends React.Component {
 	constructor() {
 		super()
 
-		this.saveGame = this.saveGame.bind(this)
+		this.handleSaveGame = this.handleSaveGame.bind(this)
 	}
 
 	componentDidMount() {
 		const {
-			setCurrentLevelNumber,
-			updateCurrentPosition,
-			toggleModal,
-			initializeLevel,
+			startGame,
+			loadGame,
+			difficulty,
 			isLoadedFromStorage
 		} = this.props
 
 		if (!isLoadedFromStorage) {
-			setCurrentLevelNumber()
-			initializeLevel()
-			updateCurrentPosition()
-			toggleModal(false)
+			startGame(difficulty)
+		} else {
+			loadGame()
 		}
 	}
 
-	saveGame() {
-		const { levelNumber, position, history } = this.props
+	componentWillUnmount() {
+		const { setLoadedStatus } = this.props
 
-		if (localStorage) {
-			localStorage.setItem('level', levelNumber.toString())
-			localStorage.setItem('position', JSON.stringify(position))
-			history.push('/')
-		}
+		setLoadedStatus(false)
+	}
+
+	handleSaveGame() {
+		const { saveGame, history } = this.props
+
+		saveGame(history)
 	}
 
 	render() {
@@ -65,7 +54,7 @@ class App extends React.Component {
 				<Button
 					text="Save Progress and Exit"
 					type="primary"
-					clickHandler={this.saveGame}
+					clickHandler={this.handleSaveGame}
 				/>
 			</div>
 		)
@@ -73,30 +62,25 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-	setCurrentLevelNumber: PropTypes.func,
-	updateCurrentPosition: PropTypes.func,
-	toggleModal: PropTypes.func,
-	levelNumber: PropTypes.number,
-	position: PropTypes.shape({
-		x: PropTypes.number,
-		y: PropTypes.number
-	}),
-	initializeLevel: PropTypes.func,
 	history: PropTypes.object,
-	isLoadedFromStorage: PropTypes.bool
+	difficulty: PropTypes.string,
+	isLoadedFromStorage: PropTypes.bool,
+	startGame: PropTypes.func,
+	saveGame: PropTypes.func,
+	loadGame: PropTypes.func,
+	setLoadedStatus: PropTypes.func
 }
 
 const mapStateToProps = createPropsSelector({
-	levelNumber: getAppLevelNumber,
-	position: getAppPosition,
+	difficulty: getAppDifficulty,
 	isLoadedFromStorage: getAppLoadedFromStorage
 })
 
 const mapDispatchToProps = {
-	setCurrentLevelNumber,
-	updateCurrentPosition,
-	toggleModal,
-	initializeLevel
+	startGame,
+	saveGame,
+	loadGame,
+	setLoadedStatus
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
