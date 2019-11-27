@@ -7,7 +7,7 @@ import {
 import { getAppPosition } from './selectors'
 import { initializeLevel } from '../Level/actions'
 import { getLevel, getLevelStart } from '../Level/selectors'
-import { generateMaze } from '../../utils/utils'
+import { generateMaze } from '../../utils/generator'
 
 export const setCurrentPosition = positionObj => ({
 	type: SET_CURRENT_POSITION,

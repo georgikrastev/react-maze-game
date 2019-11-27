@@ -10,7 +10,7 @@ import { modalTitle, modalText } from './constants'
 import { getAppModalStatus, getAppDifficulty } from '../App/selectors'
 import { toggleModal } from '../App/actions'
 import { initializeLevel } from '../Level/actions'
-import { generateMaze } from '../../utils/utils'
+import { generateMaze } from '../../utils/generator'
 
 class Modal extends React.Component {
 	constructor() {
