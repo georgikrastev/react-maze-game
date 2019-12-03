@@ -5,9 +5,9 @@
 	position: fixed;
 	left: $unit;
 	right: $unit;
-	bottom: $unit;
+	top: $unit;
 	z-index: 999;
-	transform: translate3d(0, 120%, 0);
+	transform: translate3d(0, -120%, 0);
 	transition: transform .25s;
 
 	&.is--visible {
