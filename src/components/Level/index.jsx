@@ -3,14 +3,19 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createPropsSelector } from 'reselect-immutable-helpers'
 import throttle from 'lodash.throttle'
+import { Swipeable } from 'react-swipeable'
 
 import { getLevelSize, getLevelCells, getLevelStart } from './selectors'
 import {
 	allDirections,
-	LEFT_ARROW,
-	RIGHT_ARROW,
-	UP_ARROW,
-	DOWN_ARROW,
+	LEFT_ARROW_KEYCODE,
+	RIGHT_ARROW_KEYCODE,
+	UP_ARROW_KEYCODE,
+	DOWN_ARROW_KEYCODE,
+	LEFT_STRING,
+	RIGHT_STRING,
+	UP_STRING,
+	DOWN_STRING,
 	TRANSITION_DELAY
 } from './constants'
 
@@ -29,8 +34,8 @@ class Level extends React.Component {
 	constructor() {
 		super()
 
-		this.handleKeyDown = throttle(
-			this.handleKeyDown.bind(this),
+		this.handleEvent = throttle(
+			this.handleEvent.bind(this),
 			TRANSITION_DELAY,
 			{ trailing: false }
 		)
@@ -77,12 +82,17 @@ class Level extends React.Component {
 		}
 	}
 
-	handleKeyDown(event) {
+	handleEvent(event) {
 		const { appPosition } = this.props
+		const expression = event.keyCode || event.dir.toLowerCase()
+		const leftValue = event.keyCode ? LEFT_ARROW_KEYCODE : LEFT_STRING
+		const rightValue = event.keyCode ? RIGHT_ARROW_KEYCODE : RIGHT_STRING
+		const upValue = event.keyCode ? UP_ARROW_KEYCODE : UP_STRING
+		const downValue = event.keyCode ? DOWN_ARROW_KEYCODE : DOWN_STRING
 
 		// Update position based on pressed arrow keys
-		switch (event.keyCode) {
-			case LEFT_ARROW:
+		switch (expression) {
+			case leftValue:
 				return this.updatePosition(
 					{
 						x: appPosition.x - 1,
@@ -90,7 +100,7 @@ class Level extends React.Component {
 					},
 					'left'
 				)
-			case RIGHT_ARROW:
+			case rightValue:
 				return this.updatePosition(
 					{
 						x: appPosition.x + 1,
@@ -98,7 +108,7 @@ class Level extends React.Component {
 					},
 					'right'
 				)
-			case UP_ARROW:
+			case upValue:
 				return this.updatePosition(
 					{
 						x: appPosition.x,
@@ -106,7 +116,7 @@ class Level extends React.Component {
 					},
 					'up'
 				)
-			case DOWN_ARROW:
+			case downValue:
 				return this.updatePosition(
 					{
 						x: appPosition.x,
@@ -121,7 +131,7 @@ class Level extends React.Component {
 
 	componentDidMount() {
 		// Add keyboards event listeners
-		document.addEventListener('keydown', this.handleKeyDown)
+		document.addEventListener('keydown', this.handleEvent)
 	}
 
 	componentDidUpdate(prevProps) {
@@ -142,32 +152,43 @@ class Level extends React.Component {
 
 	componentWillUnmount() {
 		// Remove keyboard event listeners
-		document.removeEventListener('keydown', this.handleKeyDown)
+		document.removeEventListener('keydown', this.handleEvent)
 	}
 
 	render() {
 		const { levelSize, levelCells } = this.props
+		const swipeableConfig = {
+			delta: 10,
+			preventDefaultTouchmoveEvent: false,
+			trackTouch: true,
+			trackMouse: false,
+			rotationAngle: 0
+		}
 
 		return levelCells ? (
-			<div className={`level level--size-${levelSize}`}>
-				<Pin />
+			<Swipeable onSwiped={this.handleEvent} {...swipeableConfig}>
+				<div className={`level level--size-${levelSize}`}>
+					<Pin />
 
-				{levelCells.map(({ key, allowedDirections }) => {
-					let classesString
-					let classesList = []
+					{levelCells.map(({ key, allowedDirections }) => {
+						let classesString
+						let classesList = []
 
-					/* eslint-disable array-callback-return */
-					allDirections.map(direction => {
-						if (!allowedDirections.includes(direction)) {
-							classesList.push(`level__cell--border-${direction}`)
-						}
-					})
+						/* eslint-disable array-callback-return */
+						allDirections.map(direction => {
+							if (!allowedDirections.includes(direction)) {
+								classesList.push(
+									`level__cell--border-${direction}`
+								)
+							}
+						})
 
-					classesString = classesList.join(' ')
+						classesString = classesList.join(' ')
 
-					return <Cell classesString={classesString} key={key} />
-				})}
-			</div>
+						return <Cell classesString={classesString} key={key} />
+					})}
+				</div>
+			</Swipeable>
 		) : null
 	}
 }

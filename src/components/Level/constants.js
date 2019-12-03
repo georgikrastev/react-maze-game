@@ -1,9 +1,13 @@
 export const INITIALIZE_LEVEL = 'INITIALIZE_LEVEL'
 export const allDirections = ['left', 'right', 'up', 'down']
-export const LEFT_ARROW = 37
-export const RIGHT_ARROW = 39
-export const UP_ARROW = 38
-export const DOWN_ARROW = 40
+export const LEFT_ARROW_KEYCODE = 37
+export const RIGHT_ARROW_KEYCODE = 39
+export const UP_ARROW_KEYCODE = 38
+export const DOWN_ARROW_KEYCODE = 40
+export const LEFT_STRING = 'left'
+export const RIGHT_STRING = 'right'
+export const UP_STRING = 'up'
+export const DOWN_STRING = 'down'
 export const TRANSITION_DELAY = 150
 export const LEVEL_WIDTH = 560
 export const LEVEL_PADDING = 20
