@@ -1,6 +1,6 @@
 {
-  "short_name": "Maze Game",
-  "name": "React Maze Game",
+  "short_name": "TheMaze",
+  "name": "The Maze",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,5 +1,5 @@
 export const TOGGLE_ALERT = 'TOGGLE_ALERT'
-export const startScreenTitle = 'Maze Game'
+export const startScreenTitle = 'The Maze'
 export const menuLinks = [
 	{
 		id: 'start-new-game-easy',
