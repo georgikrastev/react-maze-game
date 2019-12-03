@@ -159,7 +159,7 @@ class Level extends React.Component {
 		const { levelSize, levelCells } = this.props
 		const swipeableConfig = {
 			delta: 10,
-			preventDefaultTouchmoveEvent: false,
+			preventDefaultTouchmoveEvent: true,
 			trackTouch: true,
 			trackMouse: false,
 			rotationAngle: 0
