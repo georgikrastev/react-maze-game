@@ -6,3 +6,4 @@ export const UP_ARROW = 38
 export const DOWN_ARROW = 40
 export const TRANSITION_DELAY = 150
 export const LEVEL_WIDTH = 560
+export const LEVEL_PADDING = 20

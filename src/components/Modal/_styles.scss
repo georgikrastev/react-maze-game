@@ -65,5 +65,18 @@
 		.button {
 			margin: 0 $unit;
 		}
-    }
+	}
+	
+	/* Mobile styles */
+	@media(max-width: 479px) {
+		&__content {
+			max-width: calc(100% - #{$unit * 4});
+		}
+
+		&__body {
+			h4 {
+				font-size: $unit * 1.8;
+			}
+		}
+	}
 }

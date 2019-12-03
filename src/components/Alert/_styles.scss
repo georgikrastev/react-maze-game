@@ -99,4 +99,17 @@
 			}
 		}
 	}
+
+	/* Mobile styles */
+	@media(max-width: 479px) {
+		padding: $unit $unit * 3 $unit $unit;
+		font-size: $unit * 1.4;
+
+		&__close {
+			width: $unit * 1.4;
+			height: $unit * 1.4;
+			right: $unit * 1.2;
+			top: $unit * 1.2;
+		}
+	}
 }

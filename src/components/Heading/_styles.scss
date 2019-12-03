@@ -9,5 +9,16 @@
     &__subtitle {
         margin: 0;
         font-weight: normal;
-    }
+	}
+	
+	/* Mobile styles */
+	@media(max-width: 479px) {
+		&__title {
+			font-size: $unit * 2.4;
+		}
+
+		&__subtitle {
+			font-size: $unit * 1.6;
+		}
+	}
 }

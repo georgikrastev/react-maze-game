@@ -1,17 +1,17 @@
 import { difficulty } from '../components/App/constants'
 
 /**
- * if adjacent cell is not visited it's cell index, 
- * direction and oppositeDirection are added to 
+ * if adjacent cell is not visited it's cell index,
+ * direction and oppositeDirection are added to
  * the unvisited array
- * 
+ *
  * @param {Number} index 					Index of adjacent cell to be checked
  * @param {Boolean} forbidden 				Boolean of the forbidden column/row(for instance if the current cell is in the first column the adjacent cell on the left of it is forbidden)
  * @param {Array} visited 					Array of visited indexes we use to check if the current index was visited
  * @param {Array} unvisited 				Array of unvisited indexes
  * @param {Number} levelLength 				Total number of cells
  * @param {String} direction 				Direction of movement from the current cell to the selected adjacent cell
- * @param {String} oppositeDirection 		Direction of movement from the selected adjacent cell to the current cell 
+ * @param {String} oppositeDirection 		Direction of movement from the selected adjacent cell to the current cell
  */
 const isAdjacentCellNotVisited = (
 	index,
@@ -37,14 +37,14 @@ const isAdjacentCellNotVisited = (
 }
 
 /**
- * `Recursive Backtracking` algorithm to randomly 
+ * `Recursive Backtracking` algorithm to randomly
  * generate a maze
- * 
+ *
  * @param {Array} stack 					Array of indexes to backtrack generator movement
  * @param {Array} visited 					Array of visited indexes
  * @param {Number} currentIndex 			Currently selected cell index
  * @param {Array} cells 					Array of cell objects
- * @param {Number} size 					The size of the maze, for example 10 rows and 10 cols means size 10 
+ * @param {Number} size 					The size of the maze, for example 10 rows and 10 cols means size 10
  * @param {Number} levelLength 				Total number of cells in the maze, for example 10 rows and 10 cols means 100 cells in total
  */
 const recursiveBacktrack = (
@@ -167,7 +167,7 @@ const recursiveBacktrack = (
 /**
  * Generate maze based on provided difficulty
  * using the `Recursive Backtracking` algorithm
- * 
+ *
  * @param {String} difficultyLevel 			Difficulty level, for example 'EASY'
  */
 export const generateMaze = (difficultyLevel = difficulty.easy) => {
